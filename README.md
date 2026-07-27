@@ -1,7 +1,7 @@
 # Cities: Skylines II Mods
 
 Public source for Cities: Skylines II mods by
-[msulik86](https://github.com/msulik86).
+[ximxesabortion](https://github.com/ximxesabortion).
 
 ## Map Editor Bridge [BETA]
 

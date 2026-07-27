@@ -38,7 +38,7 @@ be the game or another installed mod.
 
 **Source code:**
 
-https://github.com/msulik86/cities2/tree/main/stacklight
+https://github.com/ximxesabortion/cities2/tree/main/stacklight
 
 **Support and discussion:**
 

@@ -55,7 +55,7 @@ features; they are not required to use Map Editor Bridge.
 
 **Source code:**
 
-https://github.com/msulik86/cities2/tree/main/map-editor-bridge
+https://github.com/ximxesabortion/cities2/tree/main/map-editor-bridge
 
 **Support and discussion:**
 

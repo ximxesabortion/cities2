@@ -53,7 +53,7 @@ Why a working game can still show records:
 Games and mods commonly log recoverable conditions, fallbacks, optional-content checks, and repeated warnings without stopping the current map. Stacklight records evidence; a record alone does not mean a save is broken. Minor notices remain available for mod testing and deeper diagnosis.
 
 Source code:
-https://github.com/msulik86/cities2/tree/main/stacklight
+https://github.com/ximxesabortion/cities2/tree/main/stacklight
 
 Support and discussion:
 https://forum.paradoxplaza.com/forum/threads/beta-stacklight-support-feedback-and-diagnostic-reports.1936365/
@@ -74,7 +74,7 @@ Quieter notices, honest counts, and public source.
 - Warning-level records move into a quieter Minor notices tier hidden by default
 - Repetition remains visible as xN on each record for diagnosis
 - Adds guidance for players and mod authors about recoverable diagnostics
-- Publishes complete source at github.com/msulik86/cities2
+- Publishes complete source at github.com/ximxesabortion/cities2
   </ChangeLog>
   <AccessLevel Value="Public" />
 </Publish>

@@ -35,7 +35,7 @@ Supported optional integrations:
 The construction-menu bridge has no required mod dependencies. The Mod list names the supported integrations and leaves each mod's own code in control. Road Builder and its own dependencies are required only for Road Builder features; they are not required to use Map Editor Bridge.
 
 Source code:
-https://github.com/msulik86/cities2/tree/main/map-editor-bridge
+https://github.com/ximxesabortion/cities2/tree/main/map-editor-bridge
 
 Support and discussion:
 https://forum.paradoxplaza.com/forum/threads/beta-map-editor-bridge-support-feedback-and-bug-reports.1936364/
