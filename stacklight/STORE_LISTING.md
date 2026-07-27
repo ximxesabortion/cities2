@@ -10,6 +10,10 @@ beacon. Click it for grouped warnings, errors, stack traces, counts, filters,
 copy-ready reports, a compact/expanded view with a visible custom scrollbar,
 and a lightweight tool shelf for the active playset.
 
+**Source code:**
+
+https://github.com/ximxesabortion/cities2/tree/main/stacklight
+
 The launcher counts unique errors rather than every repeated occurrence.
 Warning-level records are available as quieter **Minor notices**, hidden by
 default but still searchable, expandable, and copyable. Repetition stays on the
@@ -35,10 +39,6 @@ failure repeats, or a bug report needs a clean copyable stack trace.
 
 Stacklight does not alter simulation or saves. The source named in a record may
 be the game or another installed mod.
-
-**Source code:**
-
-https://github.com/ximxesabortion/cities2/tree/main/stacklight
 
 **Support and discussion:**
 

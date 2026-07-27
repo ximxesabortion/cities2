@@ -5,6 +5,9 @@
   <LongDescription>
 Stacklight turns the game's diagnostic stream into a small, useful status beacon.
 
+Source code:
+https://github.com/ximxesabortion/cities2/tree/main/stacklight
+
 The draggable three-color light stays tucked into the interface and opens a clean session log when you need it. Green means clear, amber means low-grade Minor notices are available, and red means errors were reported. The launcher badge counts unique errors rather than every repeated occurrence.
 
 Features:
@@ -51,9 +54,6 @@ Stacklight is a diagnostic viewer. It does not alter simulation, saves, assets, 
 
 Why a working game can still show records:
 Games and mods commonly log recoverable conditions, fallbacks, optional-content checks, and repeated warnings without stopping the current map. Stacklight records evidence; a record alone does not mean a save is broken. Minor notices remain available for mod testing and deeper diagnosis.
-
-Source code:
-https://github.com/ximxesabortion/cities2/tree/main/stacklight
 
 Support and discussion:
 https://forum.paradoxplaza.com/forum/threads/beta-stacklight-support-feedback-and-diagnostic-reports.1936365/
