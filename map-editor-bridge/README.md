@@ -6,14 +6,17 @@ menus to the Cities: Skylines II Map Editor.
 Complete source:
 https://github.com/msulik86/cities2/tree/main/map-editor-bridge
 
-Version 0.4.9 removes UI-engine warnings caused by browser-only CSS while
-preserving the verified construction, road naming, and optional-integration
-behavior. When Stacklight is installed, it still owns the combined Logs and
+Version 0.4.10 prevents duplicate prefab-detail UI bindings and gives every
+construction button a compact name label plus a missing-icon fallback. The
+verified construction, road naming, and optional-integration behavior is
+unchanged. When Stacklight is installed, it still owns the combined Logs and
 Mods view so no duplicate Mod List appears.
 
 ## What it changes
 
 - Displays the normal construction toolbar in the Map Editor.
+- Shows a compact name label for each construction button and an initials
+  fallback if its icon cannot load.
 - Displays the normal searchable asset menu for the selected category.
 - Removes editor-facing progression locks from construction-menu prefabs.
 - Repairs null optional-content badge references before the stock editor

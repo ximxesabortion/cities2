@@ -259,13 +259,14 @@
 }
 
 .unlockedToolbarButton {
+  position: relative;
   display: flex;
   width: 46rem;
   height: 46rem;
   padding: 3rem;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   color: #f2f8fa;
   background-color: rgba(53, 70, 80, 0.9);
   border: 1rem solid rgba(171, 201, 218, 0.2);
@@ -294,6 +295,47 @@
   height: 39rem;
   opacity: 1;
   filter: none;
+}
+
+.unlockedToolbarFallbackIcon {
+  display: grid;
+  width: 34rem;
+  height: 34rem;
+  place-items: center;
+  color: #dff8f3;
+  font-size: 12rem;
+  font-weight: 850;
+  letter-spacing: 0.5rem;
+  background: rgba(14, 27, 32, 0.72);
+  border: 1rem solid rgba(94, 214, 192, 0.52);
+  border-radius: 7rem;
+}
+
+.unlockedToolbarLabel {
+  position: absolute;
+  bottom: 52rem;
+  left: 50%;
+  z-index: 2;
+  display: none;
+  max-width: 220rem;
+  padding: 5rem 8rem;
+  overflow: hidden;
+  color: #f4f8fa;
+  font-size: 11rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  background: rgba(10, 18, 22, 0.98);
+  border: 1rem solid rgba(171, 201, 218, 0.34);
+  border-radius: 5rem;
+  box-shadow: 0 4rem 12rem rgba(0, 0, 0, 0.42);
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.unlockedToolbarButton:hover .unlockedToolbarLabel,
+.unlockedToolbarButton:focus .unlockedToolbarLabel {
+  display: block;
 }
 
 .unlockedToolbarDivider {

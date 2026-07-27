@@ -13,13 +13,13 @@ namespace MapEditorPlus
 
         public void OnLoad(UpdateSystem updateSystem)
         {
-            Log.Info("Loading Map Editor Bridge backend 0.4.9.");
+            Log.Info("Loading Map Editor Bridge backend 0.4.10.");
             updateSystem.UpdateBefore<
                 EditorPrefabMetadataSanitizerSystem,
                 EditorPanelUISystem
             >(SystemUpdatePhase.UIUpdate);
             updateSystem.UpdateBefore<
-                EditorPrefabUISystem,
+                EditorPrefabUIActivationSystem,
                 ToolbarUISystem
             >(SystemUpdatePhase.UIUpdate);
             updateSystem.UpdateBefore<

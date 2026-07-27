@@ -1,6 +1,6 @@
 {
   "name": "cs2-map-editor-bridge",
-  "version": "0.4.9",
+  "version": "0.4.10",
   "private": true,
   "description": "Normal construction menus and editor placement bridge for Cities: Skylines II",
   "engines": {

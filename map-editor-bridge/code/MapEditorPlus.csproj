@@ -9,7 +9,7 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <AssemblyName>MapEditorPlus</AssemblyName>
     <RootNamespace>MapEditorPlus</RootNamespace>
-    <Version>0.4.9</Version>
+    <Version>0.4.10</Version>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
     <GameManagedPath Condition="'$(GameManagedPath)' == ''">$([System.Environment]::GetEnvironmentVariable('CSII_MANAGEDPATH'))</GameManagedPath>

@@ -452,7 +452,11 @@ $forbiddenPatterns = @(
     ([regex]::Escape($localLowSegment) + "\\")
 )
 if (-not [string]::IsNullOrWhiteSpace($env:USERNAME)) {
-    $forbiddenPatterns += [regex]::Escape($env:USERNAME)
+    $usernamePattern =
+        "(?<![A-Za-z0-9_.-])" +
+        [regex]::Escape($env:USERNAME) +
+        "(?![A-Za-z0-9_.-])"
+    $forbiddenPatterns += $usernamePattern
 }
 $privacyHits = $textFiles |
     Select-String -Pattern $forbiddenPatterns -CaseSensitive:$false

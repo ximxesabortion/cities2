@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.4.10
+
+- Replaced the second editor-only `PrefabUISystem` with a mode-safe activator
+  for the game's one stock instance, eliminating duplicate `prefabs.*` UI
+  binding registrations.
+- Added a compact name label on construction-button hover and keyboard focus.
+- Added an initials fallback when a construction icon is missing or cannot be
+  loaded.
+- Kept the native asset menus, placement behavior, road naming, and optional
+  integrations unchanged.
+
 ## 0.4.9
 
 - Replaced browser-only CSS primitives with Coherent-safe flex layout, explicit

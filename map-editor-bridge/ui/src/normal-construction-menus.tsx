@@ -196,6 +196,81 @@ const enterConstructionContext = () => {
   trigger("editorTool", "selectTool", "PrefabTool");
 };
 
+const getToolbarItemLabel = (item: ToolbarItem) => {
+  const name = item.name?.trim();
+  if (name) {
+    return name;
+  }
+
+  return item.type === 1 ? "Construction menu" : "Construction tool";
+};
+
+const getToolbarItemInitials = (label: string) => {
+  const words = label
+    .split(/[\s_-]+/)
+    .map((word) => word.trim())
+    .filter(Boolean);
+
+  if (words.length === 0) {
+    return "?";
+  }
+
+  return words
+    .slice(0, 2)
+    .map((word) => word.charAt(0).toUpperCase())
+    .join("");
+};
+
+function UnlockedToolbarItemButton({
+  item,
+  selected,
+  onSelect
+}: {
+  item: ToolbarItem;
+  selected: boolean;
+  onSelect: (item: ToolbarItem) => void;
+}) {
+  const hasIcon = Boolean(item.icon?.trim());
+  const [iconFailed, setIconFailed] = useState(!hasIcon);
+  const label = getToolbarItemLabel(item);
+
+  useEffect(() => {
+    setIconFailed(!item.icon?.trim());
+  }, [item.icon]);
+
+  return (
+    <button
+      className={`${styles.unlockedToolbarButton} ${
+        selected ? styles.unlockedToolbarButtonSelected : ""
+      }`}
+      type="button"
+      title={label}
+      aria-label={label}
+      data-originally-locked={item.locked ? "true" : "false"}
+      onClick={() => onSelect(item)}
+    >
+      {iconFailed ? (
+        <span
+          className={styles.unlockedToolbarFallbackIcon}
+          aria-hidden="true"
+        >
+          {getToolbarItemInitials(label)}
+        </span>
+      ) : (
+        <img
+          src={item.icon}
+          alt=""
+          aria-hidden="true"
+          onError={() => setIconFailed(true)}
+        />
+      )}
+      <span className={styles.unlockedToolbarLabel} aria-hidden="true">
+        {label}
+      </span>
+    </button>
+  );
+}
+
 function UnlockedToolbar({
   groups,
   onEnterConstruction,
@@ -231,19 +306,12 @@ function UnlockedToolbar({
               isSameEntity(item.entity, selectedAsset);
 
             return (
-              <button
-                className={`${styles.unlockedToolbarButton} ${
-                  selected ? styles.unlockedToolbarButtonSelected : ""
-                }`}
-                type="button"
-                title={item.name ?? "Construction menu"}
-                aria-label={item.name ?? "Construction menu"}
-                data-originally-locked={item.locked ? "true" : "false"}
+              <UnlockedToolbarItemButton
+                item={item}
+                selected={selected}
                 key={`${item.entity.index}:${item.entity.version}`}
-                onClick={() => selectItem(item)}
-              >
-                <img src={item.icon} alt="" />
-              </button>
+                onSelect={selectItem}
+              />
             );
           })}
           {groupIndex < groups.length - 1 && (
