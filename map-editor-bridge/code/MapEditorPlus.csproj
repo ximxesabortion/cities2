@@ -1,0 +1,104 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Configurations>Debug;Release</Configurations>
+    <CsiiToolPath>$([System.Environment]::GetEnvironmentVariable('CSII_TOOLPATH', 'EnvironmentVariableTarget.User'))</CsiiToolPath>
+    <UseCsiiToolchain Condition="'$(CsiiToolPath)' != '' and Exists('$(CsiiToolPath)\Mod.props') and Exists('$(CsiiToolPath)\Mod.targets')">true</UseCsiiToolchain>
+    <TargetFramework Condition="'$(UseCsiiToolchain)' != 'true'">netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>MapEditorPlus</AssemblyName>
+    <RootNamespace>MapEditorPlus</RootNamespace>
+    <Version>0.4.9</Version>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <PublishConfigurationPath>Properties\PublishConfiguration.xml</PublishConfigurationPath>
+    <GameManagedPath Condition="'$(GameManagedPath)' == ''">$([System.Environment]::GetEnvironmentVariable('CSII_MANAGEDPATH'))</GameManagedPath>
+  </PropertyGroup>
+
+  <Import Project="$(CsiiToolPath)\Mod.props" Condition="'$(UseCsiiToolchain)' == 'true'" />
+  <Import Project="$(CsiiToolPath)\Mod.targets" Condition="'$(UseCsiiToolchain)' == 'true'" />
+
+  <ItemGroup Condition="'$(UseCsiiToolchain)' == 'true'">
+    <Reference Include="Game">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Colossal.Core">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Colossal.Logging">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Colossal.UI.Binding">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Collections">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Entities">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseCsiiToolchain)' != 'true'">
+    <Reference Include="Game" HintPath="$(GameManagedPath)\Game.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Colossal.Core" HintPath="$(GameManagedPath)\Colossal.Core.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Colossal.Logging" HintPath="$(GameManagedPath)\Colossal.Logging.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Colossal.UI.Binding" HintPath="$(GameManagedPath)\Colossal.UI.Binding.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Collections" HintPath="$(GameManagedPath)\Unity.Collections.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.Entities" HintPath="$(GameManagedPath)\Unity.Entities.dll">
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule" HintPath="$(GameManagedPath)\UnityEngine.CoreModule.dll">
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\ui\dist\MapEditorPlus.mjs" Link="MapEditorPlus.mjs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ui\dist\MapEditorPlus.css" Link="MapEditorPlus.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\ui\mod.json" Link="mod.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="ValidateLocalBuildInputs" BeforeTargets="ResolveReferences" Condition="'$(UseCsiiToolchain)' != 'true'">
+    <Error Condition="'$(GameManagedPath)' == ''"
+           Text="Set CSII_MANAGEDPATH or pass -p:GameManagedPath=PATH_TO_Cities2_Data\Managed." />
+    <Error Condition="!Exists('$(GameManagedPath)\Game.dll')"
+           Text="Game.dll was not found under GameManagedPath '$(GameManagedPath)'." />
+  </Target>
+
+  <Target Name="ValidateUiBuild" BeforeTargets="BeforeBuild">
+    <Error Condition="!Exists('..\ui\dist\MapEditorPlus.mjs') or !Exists('..\ui\dist\MapEditorPlus.css')"
+           Text="Build the UI first with npm run build from the ui directory." />
+  </Target>
+
+  <Target Name="RemovePrivateDeployArtifacts"
+          AfterTargets="DeployWIP"
+          Condition="'$(UseCsiiToolchain)' == 'true'">
+    <ItemGroup>
+      <PrivateDeployArtifacts Include="$(DeployDir)\*.pdb" />
+      <PrivateDeployArtifacts Include="$(DeployDir)\$(TargetName)_win_x86_64.dll" />
+      <PrivateDeployArtifacts Include="$(DeployDir)\$(TargetName)_mac_x86_64.bundle" />
+      <PrivateDeployArtifacts Include="$(DeployDir)\$(TargetName)_linux_x86_64.so" />
+    </ItemGroup>
+    <Delete Files="@(PrivateDeployArtifacts)" />
+  </Target>
+</Project>

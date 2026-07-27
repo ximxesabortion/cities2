@@ -1,0 +1,7 @@
+artifacts/
+code/bin/
+code/obj/
+release/*.zip
+release/*-CHECKSUMS.txt
+ui/dist/
+ui/node_modules/

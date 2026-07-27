@@ -1,0 +1,24 @@
+# Build and package output
+**/artifacts/
+**/release/
+**/code/bin/
+**/code/obj/
+**/code/Library/
+**/ui/dist/
+**/ui/node_modules/
+**/verification/bin/
+**/verification/obj/
+
+# Local toolchain probes and backups
+**/.toolchain_probe/
+**/.tools/
+**/.decompiled/
+**/installed-backups/
+
+# User/editor state
+.vs/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+desktop.ini

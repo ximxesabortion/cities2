@@ -1,0 +1,80 @@
+<Publish>
+  <ModId Value="152734" />
+  <DisplayName Value="Stacklight [BETA]" />
+  <ShortDescription Value="A compact draggable error logger and searchable live mod-tool shelf." />
+  <LongDescription>
+Stacklight turns the game's diagnostic stream into a small, useful status beacon.
+
+The draggable three-color light stays tucked into the interface and opens a clean session log when you need it. Green means clear, amber means low-grade Minor notices are available, and red means errors were reported. The launcher badge counts unique errors rather than every repeated occurrence.
+
+Features:
+- Works in both normal gameplay and the Editor
+- Compact draggable launcher with persistent position
+- Ctrl+Shift+L keyboard toggle
+- Captures the same warning-and-error stream used by the game
+- Resets for each loaded map and filters records explicitly tied to other saved maps
+- Groups repeated messages and shows occurrence counts without inflating the launcher badge
+- Keeps warning-level records in a quieter Minor notices tier, hidden by default
+- Compact and expanded panel sizes
+- A visible custom scrollbar with drag and track-click navigation
+- Expandable stack traces with one-click Copy
+- Copy a complete session report for bug reports or mod support
+- Automatically replaces your Windows profile path with %USERPROFILE% in copied text
+- Redacts usernames, email addresses, bearer tokens, and common credential fields
+- Includes the active playset's enabled mod names, versions, and PDX IDs
+- Adds a searchable tool-first Mods shelf with favorites and inline expansion
+- Uses native mod thumbnails when available, with compact monogram fallbacks
+- Shows verified hotkeys and live state for qualified tools
+- Calls safe quick actions through each owning mod's registered bindings
+- Hides passive libraries by default while keeping an All enabled-mod view
+- Disables missing controls instead of guessing or duplicating another mod's state
+- Lets any mod opt in through a dependency-free tool-manifest binding contract
+- Recognizes the Map Editor Bridge optional-integration set without taking control of those mods
+- Owns the shared Mods view when Map Editor Bridge is installed, preventing duplicate drawers
+- Bounded to the latest 100 unique records to prevent runaway UI growth
+- Clear log and reset-position controls
+
+Built for:
+- Players with large mod playsets who need to identify and share a failure
+- Map and asset creators who want diagnostics close at hand in the Editor
+- Mod testers reproducing a bug or checking whether one failure keeps repeating
+- Mod authors checking their own creations and support helpers who need copyable source names and stack traces
+
+Useful when:
+- A tool stops responding or a UI action silently fails
+- The built-in error panel flashes by or becomes difficult to read
+- One repeating error floods the console and you need it grouped into a count
+- You need to distinguish warnings from actual errors
+- You are filing a bug report and want a privacy-safe diagnostic block to paste
+
+Stacklight is a diagnostic viewer. It does not alter simulation, saves, assets, or other mods. A reported error may come from the game or any installed mod; Stacklight records the source when the logging system provides one.
+
+Why a working game can still show records:
+Games and mods commonly log recoverable conditions, fallbacks, optional-content checks, and repeated warnings without stopping the current map. Stacklight records evidence; a record alone does not mean a save is broken. Minor notices remain available for mod testing and deeper diagnosis.
+
+Source code:
+https://github.com/msulik86/cities2/tree/main/stacklight
+
+Support and discussion:
+https://forum.paradoxplaza.com/forum/threads/beta-stacklight-support-feedback-and-diagnostic-reports.1936365/
+
+This is an unofficial community mod and is not affiliated with Paradox Interactive or the game developers.
+  </LongDescription>
+  <Thumbnail Value="Properties/Thumbnail.png" />
+  <Tag Value="Code Mod" />
+  <ForumLink Value="https://forum.paradoxplaza.com/forum/threads/beta-stacklight-support-feedback-and-diagnostic-reports.1936365/" />
+  <Screenshot Value="Properties/Screenshots/01-stacklight-overview.png" />
+  <Screenshot Value="Properties/Screenshots/02-stacklight-expanded-and-mods.png" />
+  <ModVersion Value="0.2.5" />
+  <GameVersion Value="1.6.*" />
+  <ChangeLog>
+Quieter notices, honest counts, and public source.
+
+- Launcher and summary totals now count unique records instead of every repetition
+- Warning-level records move into a quieter Minor notices tier hidden by default
+- Repetition remains visible as xN on each record for diagnosis
+- Adds guidance for players and mod authors about recoverable diagnostics
+- Publishes complete source at github.com/msulik86/cities2
+  </ChangeLog>
+  <AccessLevel Value="Public" />
+</Publish>

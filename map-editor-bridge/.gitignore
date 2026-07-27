@@ -1,0 +1,6 @@
+code/bin/
+code/obj/
+installed-backups/
+release/
+ui/dist/
+ui/node_modules/
