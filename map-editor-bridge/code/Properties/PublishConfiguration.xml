@@ -49,6 +49,7 @@ Back up important maps before using any editor tool. This is an unofficial commu
   <Screenshot Value="Properties/Screenshots/02-supported-mod-list-store.png" />
   <Screenshot Value="Properties/Screenshots/03-road-name-bridge-store.jpg" />
   <Screenshot Value="Properties/Screenshots/05-bridge-showcase-store-duplicate.jpg" />
+  <Screenshot Value="Properties/Screenshots/04-road-name-bridge-store-duplicate.jpg" />
   <ModVersion Value="0.4.10" />
   <GameVersion Value="1.6.*" />
   <ChangeLog>
